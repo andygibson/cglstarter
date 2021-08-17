@@ -28,15 +28,7 @@ set(CGLM_SOURCES ${CGLM_DIR}/src/euler.c
 
 find_package( OpenGL REQUIRED )
 
-add_executable( glstarter  src/main.c deps/glfw-3.3.4/deps/glad_gl.c ${CGLM_SOURCES})
-
-find_package(GLEW REQUIRED)
-if (GLEW_FOUND)
-    message("Found GLEW " ${GLEW_LIBRARIES})
-    include_directories(${GLEW_INCLUDE_DIRS})
-    target_link_libraries(glstarter ${GLEW_LIBRARIES})
-endif()
-
+# Add GLFW
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
@@ -46,7 +38,8 @@ include_directories( ${CGLM_DIR}/include)
 
 add_subdirectory(deps/glfw-3.3.4 EXCLUDE_FROM_ALL)
 
-message(" opengl = " ${OPENGL_opengl_LIBRARY})
+
+add_executable( glstarter  src/main.c deps/glfw-3.3.4/deps/glad_gl.c ${CGLM_SOURCES})
 target_link_libraries(glstarter  glfw ${OPENGL_opengl_LIBRARY})
 
  
