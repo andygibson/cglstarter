@@ -1,5 +1,5 @@
 # cglstarter
-Starter application for c using CMake and OpenGL  with GLFW, glad and cglm. 
+Starter project for c using CMake and OpenGL  with GLFW, glad and cglm. 
 
 Basic CMake script with everything it needs to use GLFW with glad and cglm for c based gl math.
 
